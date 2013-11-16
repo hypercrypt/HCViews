@@ -19,8 +19,10 @@ const CGSize HCChevronViewDefaultSize = (CGSize){8.5f, 13.0f};
 + (HCChevronView *)chevronViewWithColor:(UIColor *)color highlightedColor:(UIColor *)highlightedColor
 {
     HCChevronView *chevronView = [[self alloc] initWithFrame:(CGRect){CGPointZero, HCChevronViewDefaultSize}];
+    
     chevronView.color            = color;
     chevronView.highlightedColor = highlightedColor;
+    
     return chevronView;
 }
 
@@ -52,18 +54,25 @@ const CGSize HCChevronViewDefaultSize = (CGSize){8.5f, 13.0f};
 {
     self.contentMode = UIViewContentModeRight;
     self.backgroundColor = [UIColor clearColor];
+    self.userInteractionEnabled = NO;
 }
 
 - (void)drawRect:(CGRect)rect
 {
+    CGRect bounds = self.bounds;
+    CGSize adjustedSize = (CGSize){
+        .width  = HCChevronViewDefaultSize.width  / bounds.size.width,
+        .height = HCChevronViewDefaultSize.height / bounds.size.height,
+    };
+    
     UIBezierPath *chevronPath = [UIBezierPath bezierPath];
-    [chevronPath moveToPoint:   (CGPoint){0.0f / HCChevronViewDefaultSize.width * self.bounds.size.width,  2.0f / HCChevronViewDefaultSize.height * self.bounds.size.height}];
-    [chevronPath addLineToPoint:(CGPoint){4.5f / HCChevronViewDefaultSize.width * self.bounds.size.width,  6.5f / HCChevronViewDefaultSize.height * self.bounds.size.height}];
-    [chevronPath addLineToPoint:(CGPoint){0.0f / HCChevronViewDefaultSize.width * self.bounds.size.width, 11.0f / HCChevronViewDefaultSize.height * self.bounds.size.height}];
-    [chevronPath addLineToPoint:(CGPoint){2.0f / HCChevronViewDefaultSize.width * self.bounds.size.width, 13.0f / HCChevronViewDefaultSize.height * self.bounds.size.height}];
-    [chevronPath addLineToPoint:(CGPoint){8.5f / HCChevronViewDefaultSize.width * self.bounds.size.width,  6.5f / HCChevronViewDefaultSize.height * self.bounds.size.height}];
-    [chevronPath addLineToPoint:(CGPoint){2.0f / HCChevronViewDefaultSize.width * self.bounds.size.width,  0.0f / HCChevronViewDefaultSize.height * self.bounds.size.height}];
-    [chevronPath addLineToPoint:(CGPoint){0.0f / HCChevronViewDefaultSize.width * self.bounds.size.width,  2.0f / HCChevronViewDefaultSize.height * self.bounds.size.height}];
+    [chevronPath moveToPoint:   (CGPoint){0.0f * adjustedSize.width,  2.0f * adjustedSize.height}];
+    [chevronPath addLineToPoint:(CGPoint){4.5f * adjustedSize.width,  6.5f * adjustedSize.height}];
+    [chevronPath addLineToPoint:(CGPoint){0.0f * adjustedSize.width, 11.0f * adjustedSize.height}];
+    [chevronPath addLineToPoint:(CGPoint){2.0f * adjustedSize.width, 13.0f * adjustedSize.height}];
+    [chevronPath addLineToPoint:(CGPoint){8.5f * adjustedSize.width,  6.5f * adjustedSize.height}];
+    [chevronPath addLineToPoint:(CGPoint){2.0f * adjustedSize.width,  0.0f * adjustedSize.height}];
+    [chevronPath addLineToPoint:(CGPoint){0.0f * adjustedSize.width,  2.0f * adjustedSize.height}];
     [chevronPath closePath];
     
     if (self.highlighted)
