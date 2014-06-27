@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "HCClippingView.h"
-
 
 @class HCBlockView;
 
