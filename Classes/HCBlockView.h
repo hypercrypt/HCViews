@@ -15,6 +15,8 @@ typedef void(^HCBlockViewDrawRectBlock)(HCBlockView *blockView, CGContextRef con
 
 @interface HCBlockView : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame drawRectBlock:(HCBlockViewDrawRectBlock)drawRectBlock;
+
 @property (nonatomic, copy) HCBlockViewDrawRectBlock drawRectBlock;
 
 @end

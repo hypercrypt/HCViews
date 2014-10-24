@@ -10,7 +10,7 @@
 
 @implementation HCBlockView
 
-- (id)initWithFrame:(CGRect)frame drawRectBlock:(HCBlockViewDrawRectBlock)drawRectBlock
+- (instancetype)initWithFrame:(CGRect)frame drawRectBlock:(HCBlockViewDrawRectBlock)drawRectBlock
 {
     self = [super initWithFrame:frame];
     

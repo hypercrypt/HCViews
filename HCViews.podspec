@@ -1,16 +1,17 @@
 Pod::Spec.new do |s|
   s.name         = "HCViews"
-  s.version      = "1.2"
+  s.version      = "1.3"
   s.summary      = "HCViews is a (currently small) collection of convenient views."
   s.homepage     = "https://github.com/hypercrypt/HCViews"
 
   s.license      = { :type => 'BSD', :file => 'LICENSE' }
 
   s.author       = { "Klaus-Peter Dudas" => "klaus@hypercrypt.net" }
-
+  s.social_media_url = 'https://twitter.com/hypercrypt'
+  
   s.source       = {
       :git => "https://github.com/hypercrypt/HCViews.git",
-      :tag => "1.2"
+      :tag => "#{s.version}"
   }
 
   s.platform     = :ios, '5.0'
