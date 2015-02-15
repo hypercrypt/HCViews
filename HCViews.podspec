@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HCViews"
-  s.version      = "1.3"
+  s.version      = "1.3.1"
   s.summary      = "HCViews is a (currently small) collection of convenient views."
   s.homepage     = "https://github.com/hypercrypt/HCViews"
 
@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '5.0'
 
-  s.source_files = 'Classes', 'Classes/**/*.{h,m}', 'Categories'
   s.exclude_files = 'Classes/Exclude'
 
   s.requires_arc = true
